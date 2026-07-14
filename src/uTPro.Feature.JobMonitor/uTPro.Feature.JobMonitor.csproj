@@ -1,0 +1,52 @@
+<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+  <PropertyGroup>
+    <!-- net9.0 -> Umbraco 16, net10.0 -> Umbraco 17 & 18 -->
+    <TargetFrameworks>net9.0;net10.0</TargetFrameworks>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+
+    <!-- NuGet Package Metadata -->
+    <PackageId>uTPro.Feature.JobMonitor</PackageId>
+    <Title>uTPro Background Jobs Monitor for Umbraco (16, 17, 18)</Title>
+    <Version>1.0.0</Version>
+    <Authors>T4VN</Authors>
+    <Company>T4VN</Company>
+    <Description>Read-and-trigger monitor for Umbraco recurring background jobs (Umbraco 16, 17, 18). Adds a Jobs dashboard under Settings that lists every registered recurring background job, shows its timing parameters (period, delay, server roles), records execution telemetry the CMS does not persist natively, estimates the next run, reflects load-balancing/server-role behaviour, and lets an authorized backoffice user trigger a job on demand ("Run now"). Read-only by default, no per-job wiring required, works alongside SQL Server, SQLite and PostgreSQL.</Description>
+    <PackageTags>umbraco;umbraco-marketplace;umbraco-package;background-job;recurring-job;scheduling;hosted-service;jobs;monitor;backoffice;telemetry;cron;settings</PackageTags>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/T4VN/uTPro.Feature.JobMonitor</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/T4VN/uTPro.Feature.JobMonitor</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageIcon>icon.png</PackageIcon>
+    <PackageReleaseNotes>v1.0.0: Initial release. Background Jobs Monitor dashboard for Umbraco 16/17/18 (multi-target net9.0/net10.0). Discovers modern IRecurringBackgroundJob implementations and legacy RecurringHostedServiceBase jobs, displays timing parameters and server-role behaviour, captures per-job execution telemetry, estimates the next run, and provides an authorized, overlap-safe manual trigger. Read-only by default; the only write is the manual "Run now" action. Telemetry storage is configurable via uTPro:Feature:JobMonitor: in-memory ring buffer (default) or a durable database table (uTProJobExecution) that survives restarts and is shared across load-balanced nodes, working on SQL Server, SQLite and PostgreSQL. Also configurable: history capacity and discovery cache duration.</PackageReleaseNotes>
+
+    <StaticWebAssetBasePath>App_Plugins/utpro-job-monitor</StaticWebAssetBasePath>
+    <!-- Packages are produced only via the repo's pack.ps1 (clean build + cache eviction),
+         never automatically on every build — this prevents shipping a stale/Debug assembly. -->
+    <PackageOutputPath>..\..\Build</PackageOutputPath>
+  </PropertyGroup>
+
+  <!-- Umbraco 16 (runs on .NET 9) -->
+  <ItemGroup Condition="'$(TargetFramework)' == 'net9.0'">
+    <PackageReference Include="Umbraco.Cms.Api.Management" Version="[16.0.0, 17.0.0)" />
+  </ItemGroup>
+
+  <!-- Umbraco 17 and 18 (run on .NET 10) -->
+  <ItemGroup Condition="'$(TargetFramework)' == 'net10.0'">
+    <PackageReference Include="Umbraco.Cms.Api.Management" Version="[17.0.0, 19.0.0)" />
+  </ItemGroup>
+
+  <!-- IHostedService lives in the ASP.NET Core shared framework that Umbraco already references. -->
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\README.md" Pack="true" PackagePath="/" />
+    <None Include="..\..\icon.png" Pack="true" PackagePath="/" />
+    <None Include="..\..\umbraco-marketplace.json" Pack="true" PackagePath="/" />
+  </ItemGroup>
+
+</Project>

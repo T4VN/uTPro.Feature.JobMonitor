@@ -1,0 +1,50 @@
+{
+  "name": "uTPro.JobMonitor",
+  "version": "1.0.0",
+  "extensions": [
+    {
+      "type": "menuItem",
+      "alias": "uTPro.JobMonitor.MenuItem",
+      "name": "Background Jobs Monitor Menu Item",
+      "weight": 240,
+      "meta": {
+        "label": "#utproJobMonitor_title",
+        "icon": "icon-time",
+        "entityType": "utpro-job-monitor-root",
+        "menus": ["Umb.Menu.AdvancedSettings"]
+      }
+    },
+    {
+      "type": "workspace",
+      "kind": "default",
+      "alias": "uTPro.JobMonitor.Workspace",
+      "name": "Background Jobs Monitor Root Workspace",
+      "meta": {
+        "entityType": "utpro-job-monitor-root",
+        "headline": "#utproJobMonitor_title"
+      }
+    },
+    {
+      "type": "workspaceView",
+      "alias": "uTPro.JobMonitor.View.Jobs",
+      "name": "Background Jobs Monitor Jobs View",
+      "element": "/App_Plugins/utpro-job-monitor/dashboard.js",
+      "weight": 100,
+      "meta": {
+        "label": "#utproJobMonitor_jobs",
+        "pathname": "jobs",
+        "icon": "icon-time"
+      },
+      "conditions": [
+        { "alias": "Umb.Condition.WorkspaceAlias", "match": "uTPro.JobMonitor.Workspace" }
+      ]
+    },
+    {
+      "type": "localization",
+      "alias": "uTPro.JobMonitor.Localize.EnUS",
+      "name": "Background Jobs Monitor English",
+      "js": "/App_Plugins/utpro-job-monitor/lang/en-us.js",
+      "meta": { "culture": "en-US" }
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+bin/
+obj/
+*.user
+*.suo
+.vs/
+*.nupkg
+*.snupkg
+nupkg/
+/Build/
+**/appsettings-schema.json
+**/appsettings-schema.*.json
+**/umbraco-package-schema.json
+**/umbraco/Data/TEMP/
+**/umbraco/Logs/
+**/umbraco/mediacache/
+**/*.sqlite.db
+*.sqlite.db-shm
+*.sqlite.db-wal
+.DS_Store
+Thumbs.db
+
+## Dot-prefixed folders (except .github which holds repo actions)
+.*/
+**/.*/
+!.github/
+!**/.github/
+!.kiro/
+!**/.kiro/
+
+## Local launch profile (may hold dev DB connection string / secrets) - not committed
+**/Properties/launchSettings.json

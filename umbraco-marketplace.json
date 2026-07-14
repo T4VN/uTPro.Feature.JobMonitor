@@ -1,0 +1,40 @@
+{
+  "Category": "Developer Tools",
+  "Title": "uTPro Background Jobs Monitor",
+  "Description": "Read-and-trigger monitor for Umbraco recurring background jobs (Umbraco 16, 17, 18). Adds a Jobs dashboard under the Settings section that lists every recurring background job registered in the site, shows each job's timing parameters (period, delay, server roles), records execution telemetry the CMS does not persist natively, estimates the next run, reflects load-balancing and server-role behaviour, and lets an authorized backoffice user trigger a job on demand (\"Run now\"). Discovers both modern IRecurringBackgroundJob implementations and legacy RecurringHostedServiceBase jobs automatically - no per-job wiring. Read-only by default; the only write is the manual trigger, which runs off the request thread, guards against overlap, and records who initiated it.",
+  "AuthorDetails": {
+    "Name": "T4VN",
+    "Url": "https://t4vn.com",
+    "ImageUrl": "https://github.com/t4vn.png",
+    "SyncContributorsFromRepository": true
+  },
+  "Screenshots": [
+    {
+      "ImageUrl": "https://raw.githubusercontent.com/T4VN/uTPro.Feature.JobMonitor/main/Image/Screenshots/dashboard.png",
+      "Caption": "uTPro Background Jobs Monitor - Jobs dashboard"
+    },
+    {
+      "ImageUrl": "https://raw.githubusercontent.com/T4VN/uTPro.Feature.JobMonitor/main/Image/Screenshots/run-now.png",
+      "Caption": "uTPro Background Jobs Monitor - Run now (manual trigger)"
+    }
+  ],
+  "LicenseTypes": [
+    "Free"
+  ],
+  "Tags": [
+    "background job",
+    "recurring job",
+    "scheduling",
+    "hosted service",
+    "jobs",
+    "monitor",
+    "backoffice",
+    "telemetry",
+    "cron",
+    "developer tools"
+  ],
+  "LookingForContributors": true,
+  "PackageType": "Package",
+  "DocumentationUrl": "https://github.com/T4VN/uTPro.Feature.JobMonitor",
+  "IssueTrackerUrl": "https://github.com/T4VN/uTPro.Feature.JobMonitor/issues"
+}
