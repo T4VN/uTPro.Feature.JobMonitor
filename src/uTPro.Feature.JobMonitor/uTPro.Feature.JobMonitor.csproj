@@ -9,7 +9,7 @@
     <!-- NuGet Package Metadata -->
     <PackageId>uTPro.Feature.JobMonitor</PackageId>
     <Title>uTPro Background Jobs Monitor for Umbraco (16, 17, 18)</Title>
-    <Version>1.0.0</Version>
+    <Version>1.0.1</Version>
     <Authors>T4VN</Authors>
     <Company>T4VN</Company>
     <Description>Read-and-trigger monitor for Umbraco recurring background jobs (Umbraco 16, 17, 18). Adds a Jobs dashboard under Settings that lists every registered recurring background job, shows its timing parameters (period, delay, server roles), records execution telemetry the CMS does not persist natively, estimates the next run, reflects load-balancing/server-role behaviour, and lets an authorized backoffice user trigger a job on demand ("Run now"). Read-only by default, no per-job wiring required, works alongside SQL Server, SQLite and PostgreSQL.</Description>
@@ -20,7 +20,7 @@
     <RepositoryType>git</RepositoryType>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageIcon>icon.png</PackageIcon>
-    <PackageReleaseNotes>v1.0.0: Initial release. Background Jobs Monitor dashboard for Umbraco 16/17/18 (multi-target net9.0/net10.0). Discovers modern IRecurringBackgroundJob implementations and legacy RecurringHostedServiceBase jobs, displays timing parameters and server-role behaviour, captures per-job execution telemetry, estimates the next run, and provides an authorized, overlap-safe manual trigger. Read-only by default; the only write is the manual "Run now" action. Telemetry storage is configurable via uTPro:Feature:JobMonitor: in-memory ring buffer (default) or a durable database table (uTProJobExecution) that survives restarts and is shared across load-balanced nodes, working on SQL Server, SQLite and PostgreSQL. Also configurable: history capacity and discovery cache duration.</PackageReleaseNotes>
+    <PackageReleaseNotes>v1.0.1: Fixed the backoffice package manifest display name (removed stray zero-width characters) so it lists correctly as "uTPro Background Jobs Monitor" in the Installed packages view. No code or API changes. v1.0.0: Initial release. Background Jobs Monitor dashboard for Umbraco 16/17/18 (multi-target net9.0/net10.0). Discovers modern IRecurringBackgroundJob implementations and legacy RecurringHostedServiceBase jobs, displays timing parameters and server-role behaviour, captures per-job execution telemetry, estimates the next run, and provides an authorized, overlap-safe manual trigger. Read-only by default; the only write is the manual "Run now" action. Telemetry storage is configurable via uTPro:Feature:JobMonitor: in-memory ring buffer (default) or a durable database table (uTProJobExecution) that survives restarts and is shared across load-balanced nodes, working on SQL Server, SQLite and PostgreSQL. Also configurable: history capacity and discovery cache duration.</PackageReleaseNotes>
 
     <StaticWebAssetBasePath>App_Plugins/utpro-job-monitor</StaticWebAssetBasePath>
     <!-- Packages are produced only via the repo's pack.ps1 (clean build + cache eviction),

@@ -1,6 +1,6 @@
 {
-  "name": "uTPro.JobMonitor",
-  "version": "1.0.0",
+  "name": "uTPro Background Jobs Monitor",
+  "version": "1.0.1",
   "extensions": [
     {
       "type": "menuItem",
