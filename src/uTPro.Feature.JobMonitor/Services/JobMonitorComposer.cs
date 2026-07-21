@@ -17,6 +17,9 @@ internal sealed class JobMonitorComposer : IComposer
 {
     public void Compose(IUmbracoBuilder builder)
     {
+        // Register a dedicated Swagger document for this feature (its own dropdown entry).
+        builder.Services.ConfigureOptions<ConfigureJobMonitorSwaggerGenOptions>();
+
         var options = builder.Config.GetSection(JobMonitorOptions.SectionName).Get<JobMonitorOptions>()
                       ?? new JobMonitorOptions();
 

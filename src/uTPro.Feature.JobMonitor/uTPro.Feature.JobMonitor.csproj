@@ -9,7 +9,7 @@
     <!-- NuGet Package Metadata -->
     <PackageId>uTPro.Feature.JobMonitor</PackageId>
     <Title>uTPro Background Jobs Monitor for Umbraco (16, 17, 18)</Title>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
     <Authors>T4VN</Authors>
     <Company>T4VN</Company>
     <Description>Read-and-trigger monitor for Umbraco recurring background jobs (Umbraco 16, 17, 18). Adds a Jobs dashboard under Settings that lists every registered recurring background job, shows its timing parameters (period, delay, server roles), records execution telemetry the CMS does not persist natively, estimates the next run, reflects load-balancing/server-role behaviour, and lets an authorized backoffice user trigger a job on demand ("Run now"). Read-only by default, no per-job wiring required, works alongside SQL Server, SQLite and PostgreSQL.</Description>

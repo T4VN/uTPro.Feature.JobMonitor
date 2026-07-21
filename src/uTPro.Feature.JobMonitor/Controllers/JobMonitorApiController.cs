@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Umbraco.Cms.Api.Common.Attributes;
 using Umbraco.Cms.Api.Management.Controllers;
 using Umbraco.Cms.Api.Management.Routing;
 using Umbraco.Cms.Core.Security;
@@ -16,7 +17,8 @@ namespace uTPro.Feature.JobMonitor.Controllers;
 /// Every action requires access to the Settings section.
 /// </summary>
 [VersionedApiBackOfficeRoute("utpro/job-monitor")]
-[ApiExplorerSettings(GroupName = "uTPro Background Jobs Monitor")]
+[MapToApi(ConfigureJobMonitorSwaggerGenOptions.ApiName)]
+[ApiExplorerSettings(GroupName = "Background Jobs Monitor")]
 [Authorize(Policy = AuthorizationPolicies.SectionAccessSettings)]
 public class JobMonitorApiController(
     IJobDiscoveryService discovery,
