@@ -102,24 +102,6 @@ disabled (the default) the package touches no schema.
 | [Manual Trigger (Run now)](https://github.com/T4VN/uTPro.Feature.JobMonitor/blob/main/docs/manual-trigger.md) | How Run now works, overlap/role guards, idempotency caution |
 | [Security & Permissions](https://github.com/T4VN/uTPro.Feature.JobMonitor/blob/main/docs/security.md) | Authorization model, what is read-only, accountability |
 | [Reference](https://github.com/T4VN/uTPro.Feature.JobMonitor/blob/main/docs/reference.md) | Project structure, API endpoints, discovery internals, database schema |
-| [Publishing](https://github.com/T4VN/uTPro.Feature.JobMonitor/blob/main/docs/publishing.md) | Release checklist for NuGet and the Umbraco Marketplace |
-
----
-
-## Building from source
-
-```bash
-dotnet build uTPro.Feature.JobMonitor.sln
-```
-
-`src/uTPro.Feature.JobMonitor.TestSite` is a runnable Umbraco 18 site (SQLite, unattended install)
-that registers example modern / legacy / plain services to exercise the dashboard.
-
-Produce a NuGet package deterministically:
-
-```powershell
-pwsh ./pack.ps1
-```
 
 ---
 
